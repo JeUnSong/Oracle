@@ -126,3 +126,52 @@ intersect
 select name, ea
 from sale_america
 order by ea;
+
+select ename, upper(ename), lower(ename), initcap(ename)
+from emp;
+
+select ename, length(ename)
+from emp;
+
+select length('한글'), lengthb('한글')
+from dual; -- dual은 실제 테이블이 아닌 가상의 테이블.
+
+select sysdate
+from dual;
+
+select job, substr(job,1,2), substr(job,3,2), substr(job,5)
+from emp;
+
+select instr('HELLO, ORACLE!', 'L') as instr_1,
+       instr('HELLO, ORACLE!', 'L', 5) as instr_2,
+       instr('HELLO, ORACLE!', 'L',2,2) as instr_3
+       from dual;
+       
+select '010-1234-5678' as replace_before,
+        replace('010-1234-5678','-',' ' ) as replace_1,
+        replace('010-1234-5678','-') as replace_2
+        from dual;
+        
+        
+select ename, hiredate
+from emp
+where hiredate >= 82;
+
+select *
+from emp
+where deptno = 10;
+
+select *
+from emp
+where deptno = 10
+   or deptno = 20;
+
+select *
+from emp
+order by deptno, hiredate desc;
+
+select ename, hiredate
+from emp
+where hiredate  between '70/01/01' and '81/12/31';
+
+commit;
