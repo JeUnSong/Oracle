@@ -97,6 +97,7 @@ create table sale_asia(
 );
 insert into sale_asia(name,ea) values('소나타',10);
 insert into sale_asia(name,ea) values('EV6',20);
+insert into sale_asia(name,ea) values('그랜저',30);
 select *
 from sale_asia;
 -- America
@@ -111,3 +112,17 @@ select *
 from sale_america;
 
 commit;
+
+select name, ea
+from sale_asia
+union all
+select name, ea
+from sale_america
+order by ea;
+
+select name, ea
+from sale_asia
+intersect
+select name, ea
+from sale_america
+order by ea;
